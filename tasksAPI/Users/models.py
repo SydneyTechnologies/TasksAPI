@@ -27,7 +27,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     # must have permission functions
     def has_perm(self, obj=None):
         # does this user have permissions for this object
-        return obj.owner == self
+        return True
     
     def has_module_perms(self, app_label=None):
         # I really have no use case for this 
