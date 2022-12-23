@@ -8,7 +8,8 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.response import Response
 from .exceptions import LoginFailed, UserExists, UserNotFound
 from rest_framework import status
-from rest_framework.mixins import RetrieveModelMixin
+
+
 def get_user_tokens(user):
     refresh = RefreshToken.for_user(user)
     return {
@@ -69,11 +70,6 @@ class UserViewSet(viewsets.GenericViewSet):
             return Response(CustomUserSerializer(request.user).data)
         except:
             raise UserNotFound
-        # try:
-        #     user = CustomUser.objects.get(email=pk)
-        #     return Response(user)
-        # except:
-        #     raise UserNotFound
 
         
     

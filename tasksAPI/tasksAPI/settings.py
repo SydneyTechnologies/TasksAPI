@@ -43,9 +43,11 @@ INSTALLED_APPS = [
     # third party apps
     'rest_framework',
     'rest_framework_simplejwt',
+    "corsheaders"
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -137,3 +139,11 @@ REST_FRAMEWORK = {
     )
 
 }
+
+ALLOWED_HOSTS = ["*"]
+
+# CORS_ALLOWED_ORIGINS = [
+#     "http://172.30.10.101:3000",
+# ]
+
+CORS_ALLOW_ALL_ORIGINS = True

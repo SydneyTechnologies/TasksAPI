@@ -14,3 +14,9 @@ class UserNotFound(APIException):
     status_code = 404
     default_detail = "User not found"
     default_code = "User not found"
+
+
+class CollectionNotFound(APIException):
+    status_code = 404
+    default_detail = "Collection not found"
+    default_code = "Collection not found"
