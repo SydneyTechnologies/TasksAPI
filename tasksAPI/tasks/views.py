@@ -48,11 +48,7 @@ class TaskViewSet(ModelViewSet):
     def create(self, request, *args, **kwargs):
         serializer = TaskSerializer(data=request.data)
         if serializer.is_valid():
-            collectionId = serializer.validated_data["collectionId"]
-            if collectionId:
-                try:
-                    collection = Collections.objects.get(id = collectionId)
-                    serializer.validated_data["collection"] = collection
-                    serializer.save()
-                except:
-                    raise CollectionNotFound
+            task = serializer.save()
+            return Response(TaskSerializer(instance=task).data)
+        else:
+            return Response({"status":"Creation failed"})

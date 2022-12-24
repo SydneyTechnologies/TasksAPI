@@ -9,7 +9,6 @@ class CollectionSerializer(serializers.ModelSerializer):
 
 
 class TaskSerializer(serializers.ModelSerializer):
-    collectionId = serializers.CharField(required=False)
     class Meta:
         model = Tasks
         fields = "__all__"
